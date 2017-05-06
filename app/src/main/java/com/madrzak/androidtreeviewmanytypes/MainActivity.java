@@ -6,8 +6,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.madrzak.androidtreeviewmanytypes.model.MyNodeType;
 import com.unnamed.b.atv.model.TreeNode;
 import com.unnamed.b.atv.view.AndroidTreeView;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         NodeTreeProvider.getInstance().init(this);
 
-        TreeNode root = NodeTreeProvider.getInstance().generateTree();
+        Set<MyNodeType> filter = new HashSet<>();
+        filter.add(MyNodeType.USER);
+        TreeNode root = NodeTreeProvider.getInstance().generateTree(null);
 
         tView = new AndroidTreeView(this, root);
         tView.setDefaultAnimation(true);

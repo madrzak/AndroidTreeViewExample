@@ -9,8 +9,9 @@ import java.util.Set;
 
 public class MyTreeNodeViewModel {
 
-    private MyTreeNode treeNode;
+
     private Long parentId;
+    private MyTreeNode treeNode;
     private Set<Long> children = new HashSet<>();
 
     public MyTreeNodeViewModel(MyTreeNode treeNode, Long parentId) {
