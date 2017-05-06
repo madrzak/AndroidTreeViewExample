@@ -9,6 +9,7 @@
 
     <CheckBox
         android:visibility="gone"
+        style="@style/listCheckbox"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_alignParentLeft="true"
@@ -16,47 +17,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <LinearLayout
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="28dp"
+    <com.github.johnkil.print.PrintView
         android:layout_alignWithParentIfMissing="true"
-        android:layout_toRightOf="@id/node_selector"
-        android:orientation="vertical"
-        android:id="@+id/picture_wrapper"
-        android:layout_width="wrap_content"
+        android:layout_toRightOf="@+id/node_selector"
+        android:id="@+id/arrow_icon"
         android:layout_centerVertical="true"
-        android:layout_height="wrap_content">
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:iconText="@string/ic_keyboard_arrow_right"
+        app:iconColor="#12558C"
+        app:iconFont="fonts/material-icon-font.ttf"
+        app:iconSize="20dp" />
 
-        <View
-            android:id="@+id/top_line"
-            android:background="#12558C"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="1dp"
-            android:layout_height="16dp" />
-
-        <com.github.johnkil.print.PrintView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:iconText="@string/ic_check_circle_blank"
-            app:iconColor="#12558C"
-            app:iconFont="fonts/material-icon-font.ttf"
-            app:iconSize="16dp" />
-
-        <View
-            android:id="@+id/bot_line"
-            android:background="#12558C"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="1dp"
-            android:layout_height="16dp" />
-    </LinearLayout>
-
+    <com.github.johnkil.print.PrintView
+        android:layout_marginLeft="5dp"
+        android:layout_alignWithParentIfMissing="true"
+        android:id="@+id/icon"
+        android:layout_toRightOf="@id/arrow_icon"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:iconText="@string/ic_email"
+        app:iconColor="#12558C"
+        app:iconFont="fonts/material-icon-font.ttf"
+        app:iconSize="24dp" />
 
     <TextView
+        android:layout_marginRight="10dp"
         android:layout_centerVertical="true"
         android:textSize="16sp"
-        android:textColor="@color/white"
+        android:textColor="@color/colorPrimary"
         android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/picture_wrapper"
+        android:layout_toRightOf="@+id/icon"
         android:id="@+id/node_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

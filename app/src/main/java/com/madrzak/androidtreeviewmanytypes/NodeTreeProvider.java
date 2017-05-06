@@ -8,8 +8,7 @@ import com.madrzak.androidtreeviewmanytypes.model.Group;
 import com.madrzak.androidtreeviewmanytypes.model.MyNodeType;
 import com.madrzak.androidtreeviewmanytypes.model.MyTreeNodeViewModel;
 import com.madrzak.androidtreeviewmanytypes.model.User;
-import com.madrzak.androidtreeviewmanytypes.treeview.IconTreeItemHolder;
-import com.madrzak.androidtreeviewmanytypes.treeview.SelectableHeaderHolder;
+import com.madrzak.androidtreeviewmanytypes.treeview.SelectableItemHolder;
 import com.unnamed.b.atv.model.TreeNode;
 
 import java.util.HashMap;
@@ -66,8 +65,8 @@ public class NodeTreeProvider {
         nodeViews.put(7L, (new MyTreeNodeViewModel(new Group(7, "group 7"), 2L)));
         nodeViews.put(8L, (new MyTreeNodeViewModel(new User(8, "user 1"), 2L)));
         nodeViews.put(9L, (new MyTreeNodeViewModel(new Account(9, "account 3"), null)));
-        nodeViews.put(10L, (new MyTreeNodeViewModel(new Account(10, "user 2"), 7L)));
-        nodeViews.put(11L, (new MyTreeNodeViewModel(new Account(11, "user 3"), 7L)));
+        nodeViews.put(10L, (new MyTreeNodeViewModel(new User(10, "user 2"), 7L)));
+        nodeViews.put(11L, (new MyTreeNodeViewModel(new User(11, "user 3"), 7L)));
 
         // assigning children id's to all nodes
         from(nodeViews.values())
@@ -84,7 +83,7 @@ public class NodeTreeProvider {
 
 
     private TreeNode buildBranch(TreeNode treeNode, MyTreeNodeViewModel model) {
-        TreeNode newNode = new TreeNode(new IconTreeItemHolder.IconTreeItem(R.string.ic_folder, model.getTreeNode().getName(), model.getTreeNode().getId())).setViewHolder(new SelectableHeaderHolder(context));
+        TreeNode newNode = new TreeNode(model.getTreeNode()).setViewHolder(new SelectableItemHolder(context));
         treeNode.addChild(newNode);
         for (Long nodeId : model.getChildren()) {
             buildBranch(newNode, nodeViews.get(nodeId));

@@ -17,6 +17,8 @@
     <string name="ic_check_circle_blank">&#xe03e;</string>
     <string name="ic_folder">&#xe09d;</string>
     <string name="ic_keyboard_arrow_down">&#xe0c5;</string>
+    <string name="ic_person">&#xe105;</string>
+
 
 
 </resources>
