@@ -66,6 +66,8 @@ public class NodeTreeProvider {
         nodeViews.put(7L, (new MyTreeNodeViewModel(new Group(7, "group 7"), 2L)));
         nodeViews.put(8L, (new MyTreeNodeViewModel(new User(8, "user 1"), 2L)));
         nodeViews.put(9L, (new MyTreeNodeViewModel(new Account(9, "account 3"), null)));
+        nodeViews.put(10L, (new MyTreeNodeViewModel(new Account(10, "user 2"), 7L)));
+        nodeViews.put(11L, (new MyTreeNodeViewModel(new Account(11, "user 3"), 7L)));
 
         // assigning children id's to all nodes
         from(nodeViews.values())

@@ -1,6 +1,7 @@
 package com.madrzak.androidtreeviewmanytypes.treeview;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -16,6 +17,8 @@ import com.unnamed.b.atv.model.TreeNode;
  * Created by Bogdan Melnychuk on 2/15/15.
  */
 public class SelectableHeaderHolder extends TreeNode.BaseNodeViewHolder<IconTreeItemHolder.IconTreeItem> {
+    private static final String TAG = SelectableHeaderHolder.class.getSimpleName();
+
     private TextView tvValue;
     private PrintView arrowView;
     private CheckBox nodeSelector;
@@ -37,9 +40,14 @@ public class SelectableHeaderHolder extends TreeNode.BaseNodeViewHolder<IconTree
 
         arrowView = (PrintView) view.findViewById(R.id.arrow_icon);
         if (node.isLeaf()) {
-            arrowView.setVisibility(View.GONE);
+            arrowView.setVisibility(View.INVISIBLE);
         }
 
+        if (node.getLevel() > 1) {
+            iconView.setPadding(44 * (node.getLevel()-1), 0, 0, 0);
+            Log.i(TAG, value.text + " " + node.getLevel());
+        }
+        
         nodeSelector = (CheckBox) view.findViewById(R.id.node_selector);
         nodeSelector.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -65,4 +73,5 @@ public class SelectableHeaderHolder extends TreeNode.BaseNodeViewHolder<IconTree
         nodeSelector.setVisibility(editModeEnabled ? View.VISIBLE : View.GONE);
         nodeSelector.setChecked(mNode.isSelected());
     }
+
 }
